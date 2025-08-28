@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Form Demo</title>
+</head>
+
+<body>
+    <h3>User Information</h3>
+
+
+    <!-- file:///Users/shridevisawant/WT/SectionA/form_demo.html?userid=test -->
+    <form>
+        <label for="uname">Username:</label>
+        <input type="text" id="uname" name="userid"  required>
+
+        <div>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email">
+            
+        </div>
+
+        <div>
+            <label for="pwd">Password:</label>
+            <input type="password" id="pwd" name="password" 
+                placeholder="min 8 chars" minlength="8">
+            <input type="button" value="Show">
+        </div>
+
+        <!-- file:///&gender=on -->
+        <!-- file:userid=&password=&gender=m -->
+        <!-- radio buttons-->
+        <fieldset><!--box containing enclosed inputs-->
+            <legend>Gender</legend> <!--appears on box-->
+            <!-- <label>Gender</label><br> -->
+            <input type="radio" id="female" name="gender" value="f">
+            <label for="female">female</label> <br>
+            <input type="radio" id="male" name="gender" value="m">
+            <label for="male"> Male</label>
+        </fieldset>
+        <!--Checkbox-->
+
+        <!--textarea-->
+        <div>
+            <label for="descr">Description</label>
+            <textarea id="descr" name="description" rows="3" cols="50"></textarea>
+        </div>
+
+        <br><br>
+        <input type="submit">
+    </form>
+</body>
+
+</html>

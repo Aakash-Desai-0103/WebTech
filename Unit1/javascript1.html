@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <title>First JS</title>
+    <script src="prime.js"></script>
+    <script src="my.js" type="text/javascript"></script>
+    <script>
+        var noOfStudents = 50;
+
+        console.log("from head script");
+        document.write("<h4>Hello</h4>");
+       // alert("Hello"); // blocking 
+       /*
+       primitive types - number, string, boolean, null, undefined
+       var, let, const
+       */
+
+       var x = 10; // number type
+       let name = "pes" // string
+       const pi = 3.142 // number type, cannot be modified
+
+       x = 20;
+       name = "xyz";
+      // pi = 12.343 // throws error
+
+      console.log("Name:" + name);
+      console.log("x: " + x);
+      console.log("pi: " + pi);
+
+      var y; // undefined
+      console.log("y: " + y);
+
+      let marks = null; 
+      console.log("marks: " + marks);
+
+      /* 
+      for, while/ do-while, if-else
+      */
+    
+      var counter = 0;
+      for (let i = 0; i < 5; i++){
+        console.log(`i: ${i} inside for`);
+        counter += 2; // counter = counter + 2
+      }
+     // console.log(`i: ${i}`);// reference error
+      console.log(`counter: ${counter}`); //string template/ interpolation
+
+      while(counter > 0){
+        counter--;
+      }
+      console.log(`counter: ${counter}`);
+    </script>
+</head>
+
+<body>
+    <script>
+        console.log("from body script START");
+    </script>
+    <h3>First Javascript demo</h3>
+    <script>
+        console.log("from body script END");
+    </script>
+</body>
+
+</html>

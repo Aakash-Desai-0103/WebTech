@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+    <html lang="en">
+        <head>
+            <title>Newer Objects</title>
+            
+        </head>
+<body>
+    <h3>Creating new objects</h3>
+    <script>
+        //1 Object Constructor
+        let obj1=new Object();
+        obj1.name="John";
+        obj1.age=24;
+        console.log(obj1);
+        //2 Object Literal Syntax
+        let obj2={
+            "name":"Merry",
+            "age":22,
+            "work":function(){
+                console.log("She is an engineer");
+            }
+        };
+        console.log(obj2);
+        obj2.work();
+        //3 Constructor Function
+        function Person(fname,lname,age){
+            this.fname=fname;
+            this.lname=lname;
+            this.age=age;
+            /*this.FullName=function(){
+                return this.fname+" "+this.lname;
+            }
+        }*/
+        }
+        Person.prototype.FullName=function(){
+                return this.fname+" "+this.lname;
+            }
+        Person.prototype.show=function(){
+            return this.fname+" "+this.lname+" is "+this.age+" years old.";
+        }
+            let p1=new Person("Aakash","Desai",19);
+            let p2=new Person("Aariz","Qureshi",19);
+            console.log(p1);
+            console.log(p2);
+            console.log(p1.FullName());
+            console.log(p2.show());
+    //4 Class Syntax
+    class Employee
+    {
+        constructor(name,ID)
+        {
+            this.name=name;
+            this.ID=ID;
+        }
+        display()
+        {
+            console.log("Name: " + this.name + ", ID: " + this.ID);
+        }
+    }
+    let emp1=new Employee("John Doe",101);
+    emp1.display(); 
+    class student
+    {
+        constructor(name,rollno,marks,total_marks)
+        {
+            this.name=name;
+            this.rollno=rollno;
+            this.marks=marks;
+            this.total_marks=total_marks;
+        }
+        display()
+        {
+            console.log("Name: " + this.name + ", Roll No: " + this.rollno + ", Marks: " + this.marks);
+        }
+        topercentage()
+        {
+            return (this.marks/this.total_marks)*100;
+        }
+    }
+    let s1=new student("Merry",201,85,125);
+    s1.display();
+    console.log("Percentage: " + s1.topercentage() + "%");
+            </script>
+</body>
+    </html> 

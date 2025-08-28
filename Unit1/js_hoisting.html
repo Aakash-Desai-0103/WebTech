@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let result = add(10, 20);
+        console.log("10 + 20 =" + result);
+
+        // hoisting - interpreter moves declaration on top of current scope
+        // named functions only hoisted
+        function add(a, b){
+            return a + b;
+        }
+
+
+        // variable hoisting - only for var - declaration is hoisted with undefined
+        //x = 10 // assignment
+        console.log("x: " + x);
+        var x = 10; // declaration
+
+        /* interpreter creates below code */
+        // var x;
+        // console.log("x: " + x);
+        // x = 10
+
+
+        result = add(10); // a= 10, b= undefined
+        console.log(result);
+
+        result = add(10, 20, 30, 40); // a = 10, b= 20 (extra args are ignored)
+        console.log(result);
+        // variable length arg
+        function anotherAdd(...args){
+            console.log(arguments);
+            var sum = 0;
+            for (let i in args){
+                sum += arguments[i]
+            }
+            return sum;
+        }
+       
+        result = anotherAdd(10)
+        result = anotherAdd(1,2,3,4)
+        console.log(result);
+    </script>
+</head>
+<body>
+    
+    <h3>Javascript Hoisting</h3>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DOM</title>
+</head>
+<body>
+    <h1>Document Object Model</h1>
+    <p class="Content">The Document Object Model (DOM) is a programming interface for web documents.</p>
+    <h2 id="title">DOM manipulation with JavaScript</h2>
+
+    <div id="mydiv">
+        <img src="C:\Users\LENOVO\OneDrive\Desktop\PES\Academics\Subject\WebTech\Unit1\rabbit.jpeg" alt="Rabbit">This Rabbit
+    </div>
+
+    <script>
+        // Get h2 element
+        let h2OBj=document.getElementById("title");
+        console.log(h2OBj.textContent);
+
+        // Get class collection
+        let collection=document.getElementsByClassName("Content");
+        console.log("Collection length is " + collection.length);
+
+        // Access and change paragraph
+        let pobj=collection[0];
+        console.log(pobj.textContent);
+        pobj.textContent="Shit has changed";
+
+        // Get image element
+        let imgObj=document.getElementsByTagName("img");
+        let imgObj1=imgObj[0];
+        let imgPath=imgObj1.getAttribute("src");
+        console.log("Image path: " + imgPath);
+
+        // Resize image
+        imgObj1.style.width="200px";
+        
+
+
+        // Add UL inside div
+        let divObj=document.getElementById('mydiv');
+        let ulOBj=document.createElement("ul");
+        divObj.appendChild(ulOBj);
+
+        // Create first li
+        let liObj=document.createElement("li");
+        liObj.textContent="List Item 1";
+        ulOBj.appendChild(liObj);
+
+        //stuff
+        divObj.style.backgroundColor="yellow";
+        divObj.style.border="2px solid red";
+        // Create another li with h3 inside
+        let liObj2=document.createElement("li");
+        let h3Obj=document.createElement("h3");
+        h3Obj.textContent="List Item 2";
+        liObj2.appendChild(h3Obj);
+        ulOBj.appendChild(liObj2);
+    </script>
+</body>
+</html>

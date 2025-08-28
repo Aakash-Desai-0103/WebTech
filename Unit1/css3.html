@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html >
+    <head>
+        <title>Demo</title>
+        <style>
+            /* multiple selectors */
+
+            h3, h4 {
+                font-family: cursive;
+                text-decoration: underline;
+            }
+
+            h3 {
+                font-size: 50px;
+                
+                border: 1px solid black;
+                /* border-bottom: 1px dotted red; */
+                border-radius: 15px;
+                text-align: center;
+                padding-top: 20px;
+                padding-bottom: 10px;
+            }
+
+            li {
+                font-size: 20px;
+               
+            }
+
+            /* nested selector */
+
+            ul li {
+                color: tomato;
+            }
+
+            ol li {
+                color: blueviolet;
+            }
+
+            /* pseudo class */
+
+            li:hover {
+                font-size: 25px;
+                border: 1px dotted black;
+            }
+
+            /* when user has not yet visited the link*/
+            a:link {
+                color: blue;
+            }
+            /* when user has visited the link*/
+            a:visited {
+                color: red;
+            }
+            
+            ul li:nth-child(even) {
+                background-color: yellow;
+            }
+
+            ul li:nth-child(odd) {
+                background-color: orange;
+            }
+
+            footer {
+                background-color: aqua;
+                position: sticky;
+                bottom: 8px;
+                width: 100%;
+            }
+
+            a {
+                right: 16px;
+                position: absolute;
+            }
+
+            h4 {
+                margin-left: 20px;
+            }
+
+            h3 {
+                margin-left: 50px;
+                margin-right: 50px;
+            }
+
+            ul {
+                list-style-type: square;
+            }
+
+        </style>
+        
+    </head>
+    <body style="background-color: aquamarine;">
+        
+        <h3>CSS Demo </h3>
+        <a href="https://google.com">click here</a>
+        <h4>Item List</h4>
+        <ul>
+            <li>item 1</li>
+            <li>item 2</li>
+            <li>item 3</li>
+            <li>item 4</li>
+            <li>item 1</li>
+            <li>item 2</li>
+            <li>item 3</li>
+            <li>item 4</li>
+        </ul>
+
+        <h4>Mobile app development technologies</h4>
+        <ol>
+            <li>Android</li>
+            <li>iOS </li>
+            <li>Flutter</li>
+        </ol>
+        
+        <footer>
+            <hr>
+            <p>&copy; Copyright 2025</p>
+        </footer>
+    </body>
+</html>

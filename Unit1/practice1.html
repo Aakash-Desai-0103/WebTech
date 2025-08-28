@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Feedback</title>
+</head>
+
+
+<body>
+
+    <h2>Feedback Form</h2>
+
+    <form action="http://abc.com" method="post">
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" name="name" placeholder="Full Name"><br>
+
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email" required><br><br>
+
+        <label for="doj">Joining Date </label>
+        <input type="date" id="doj" name="date" required><br>
+
+        <label for="rating">Rating (1 to 5):</label>
+        <select id="rating" name="rating" required>
+            <option value="">Select</option>
+            <option value="1">1 - Poor</option>
+            <option value="2">2 - Fair</option>
+            <option value="3">3 - Good</option>
+            <option value="4">4 - Very Good</option>
+            <option value="5">5 - Excellent</option>
+        </select><br></br>
+
+        <!-- <label for="comments">Comments:</label><br>
+        <textarea id="comments" name="comments" rows="4"></textarea>
+<br><br> -->
+        <button type="submit">Submit Feedback</button>
+    </form>
+
+    <h3>Feedback Responses</h3>
+    <table border="1px">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Rating</th>
+               
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Alice</td>
+                <td>alice@example.com</td>
+                <td>5</td>
+                
+            </tr>
+            <tr>
+                <td>Bob</td>
+                <td>bob@example.com</td>
+                <td>3</td>
+               
+            </tr>
+            <tr>
+
+                <th colspan="2"> Average Rating  </th>
+                <td >4</td>
+               
+            </tr>
+        </tbody>
+    </table>
+
+</body>
+
+</html>

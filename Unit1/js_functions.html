@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        
+
+        // declaration - named function 
+        function isEven(num){
+            console.log("isEven executed for number:" + num);
+            if(num % 2 == 0)
+                return true;
+
+            return false;
+        }
+
+        // call/invoke/execute
+        let result = isEven(10);
+        console.log(`10 is even: ${result}`) // string interpolation
+
+        // annonymous functions - without name
+        // higher order functions
+        // method1 - function expression
+
+        let isOdd = function (num) {
+            if(num % 2 == 1)
+                return true
+            return false
+        }
+        
+        result = isOdd(11)
+        console.log(`11 is odd: ${result}`);
+
+        // method2 - arrow functions
+        let isPositive = (num) => {
+            if(num > 0)
+                return true
+            return false
+        }
+
+        result = isPositive(-10);
+        console.log(`-10 is positive ${result}`);
+
+        // Higher order function - input param or return value is function
+
+        function doOperation(mathOperation, a, b){
+            if(a > 0 && b > 0){
+               return mathOperation(a,b);
+            }
+        }
+        
+        result = doOperation((x,y) => {
+            return x - y;
+        }, 100, 200)
+
+        console.log(result)
+
+    </script>
+</head>
+<body>
+    
+    <h3>Javascript functions - demo </h3>
+</body>
+</html>
