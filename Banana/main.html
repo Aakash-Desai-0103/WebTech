@@ -1,1 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8" />
+     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Smart Personal Profile Form</title>
+<link rel="stylesheet" href="Banana.css" type="text/css">
 
+</head>
+<body>
+  <header>
+    <h1>Smart Personal Profile Form</h1>
+    <p id="dateTime"></p>
+  </header>
+
+  <div class="container">
+    <div class="form-box">
+      <h2>Enter Your Details</h2>
+      <form id="profileForm" novalidate>
+        <label for="name">Full Name *</label>
+        <input type="text" id="name" name="name" required />
+
+        <label for="email">Email *</label>
+        <input type="email" id="email" name="email" required />
+
+        <label for="phone">Phone Number</label>
+        <input type="tel" id="phone" name="phone" pattern="\d{10}" title="Please enter exactly 10 digits" required placeholder="enter 10 digits" />
+
+
+        <label for="bio">Short Bio</label>
+        <textarea id="bio" name="bio" rows="3"  cols="15" placeholder="About Yourself"></textarea>
+
+        <button type="submit" class="btn">Submit</button>
+      </form>
+    </div>
+
+    <div class="preview-box">
+      <h2>Live Preview</h2>
+      <div class="highlight">
+        <p><b>Name:</b> <span id="previewName">-</span></p>
+        <p><b>Email:</b> <span id="previewEmail">-</span></p>
+        <p><b>Phone:</b> <span id="previewPhone">-</span></p>
+        <p><b>Bio:</b> <span id="previewBio">-</span></p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const nameInput = document.getElementById("name");
+    const emailInput = document.getElementById("email");
+    const phoneInput = document.getElementById("phone");
+    const bioInput = document.getElementById("bio");
+
+    function updatePreview() {
+      document.getElementById("previewName").textContent = nameInput.value || "-";
+      document.getElementById("previewEmail").textContent = emailInput.value || "-";
+      document.getElementById("previewPhone").textContent = phoneInput.value || "-";
+      document.getElementById("previewBio").textContent = bioInput.value || "-";
+    }
+
+    [nameInput, emailInput, phoneInput, bioInput].forEach(input => {
+      input.addEventListener("input", updatePreview);
+    });
+
+    document.getElementById("profileForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      if (this.checkValidity()) {
+        alert("Form submitted successfully!");
+      } else {
+ alert("Please fill required fields correctly.");
+ }
+ });
+ function updateDateTime() {
+      const now = new Date();
+
+      const formattedDateTime = "Date & Time: " + now.toLocaleDateString() + ", " + now.toLocaleTimeString();
+      document.getElementById("dateTime").textContent = formattedDateTime;
+    }
+
+
+    setInterval(updateDateTime, 1000);
+
+ 
+    updateDateTime();
+ </script>
+</body>
+</html>
