@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    <h3>Axios - Javascript library for HTTP handling</h3>
+
+    <button onclick="getData()">Get Data</button>
+    <div id="result">
+
+    </div>
+    <script>
+        const divElement = document.querySelector("#result");
+
+        async function getData(){
+            // get data from API endpoint/URL
+            try {
+                let res = await axios.get("https://jsonplaceholder.typicode.com/posts/99");
+                console.log(res.data);
+
+                divElement.innerHTML = `
+                    <h3>${res.data.title}</h3>
+                    <h4>${res.data.body}</h4>
+                    <h5>Posted by ${res.data.userId} </h5>
+                `
+            }catch(err){
+                console.log("ERROR:", err.message);
+            }
+        }
+    </script>
+</body>
+</html>

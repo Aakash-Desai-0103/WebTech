@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h3>Callback and Promise Demo</h3>
+
+    <script>
+        // callback 
+        function loginUser(username, pwd, afterLogin) {
+            console.log("Login in progress");
+            // send to server, get the response
+            // simulate API call, 5 sec to send response
+            setTimeout(() => {
+                const isAuthenticated = true;
+                if (isAuthenticated) {
+                    afterLogin("Successfully logged in user:" + username);
+                }
+            }, 5000);
+        }
+
+        // loginUser("john", "123", (msg) => {
+        //     console.log(msg)
+        // });
+        // console.log("Please wait..for login to complete")
+
+        // promise
+        function loginUserWithPromise(username, pwd) {
+            // 1. describe the promise
+            let loginTask = new Promise(function (resolve, reject) {
+                console.log("Login in progress");
+                // send to server, get the response
+                // simulate API call, 5 sec to send response
+                setTimeout(() => {
+                    const isAuthenticated = false;
+                    if (isAuthenticated) {
+                        resolve("successfully logged in user " + username);
+                    }
+                    else {
+                        reject("authenticated failed for user " + username);
+                    }
+                }, 5000);
+
+            })
+
+            return loginTask;
+        }
+
+        // 2. consume the promise
+
+        loginUserWithPromise("merry", "111")
+            .then((msg) => {
+                // if promise resolved, this will get executed
+                console.log("Promise resolved:", msg)
+            })
+            .catch((err) => {
+                // if promise rejected, this will get executed
+                console.log("Promise rejected:", err);
+            })
+
+        console.log("---DONE---");
+    </script>
+</body>
+
+</html>

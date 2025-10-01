@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- react libs  -->
+     <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+     <!-- babel- jsx compiler (converts jsx to javascript) -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.28.4/babel.min.js"></script>
+</head>
+<body>
+    <h3>React - JSX elements rendering</h3>
+    <div id="content"></div>
+
+    <script type="text/babel">
+
+        // react functional component , return JSX
+        function Info(){
+            const name = "PES University";
+            const email = "info@pes.edu";
+            return <>
+                <h3>Name: {name.toUpperCase()}</h3>
+                <h4>Email: {email}</h4>
+            </>
+        }
+
+        const isLoggedIn = true; 
+        const titleElement = <>
+                <h2>First JSX Element</h2>
+                <Info />
+                {isLoggedIn ? <LoggedInUser/> : <GuestUser/>}
+            </>
+            ;
+        const divElement = document.querySelector("#content");
+        let root = ReactDOM.createRoot(divElement);
+        root.render(titleElement);
+
+
+        function LoggedInUser(){
+            const username = "John Smith";
+            return <div className = "user">
+                <h3>Welcome {username}</h3>
+                <p>Thank You</p>
+            </div>
+        }
+
+        function GuestUser(){
+            return <div className="guest">
+                <h3>Welcome Guest</h3>
+                <h4>Please register and login</h4>
+            </div>
+        }
+
+    </script>
+</body>
+
+</html>

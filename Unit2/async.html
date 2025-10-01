@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3> Async and Await usage demo </h3>
+    <script>
+        async function doTask(){
+            // perform long running task
+
+            return "task completed with result"
+        }
+
+        // method1 - consume the promise with then
+        doTask().then((msg) => { console.log(msg)});
+
+        // method2 - using await
+        async function getData() {
+            try {
+                const result = await doTask(); // pauses the execution
+                console.log("got data:", result);
+            }catch (err){
+                console.log("Error getting data", err);
+            }
+        }
+
+        getData();
+
+        async function getPlaces(){
+            let res = await fetch("http://api.geonames.org/postalCodeSearchJSON?postalcode=9011&maxRows=10&username=demo");
+            console.log(res);
+            console.log(await res.json());
+        }
+
+        getPlaces();
+
+        async function getMultiplePlaces(){
+            try {
+                let [res1, res2] = await Promise.all([
+                    fetch("http://api.geonames.org/postalCodeSearchJSON?postalcode=560011&maxRows=10&username=demo"),
+                    fetch("http://api.geonames.org/postalCodeSearchJSON?postalcode=400020&maxRows=10&username=demo")
+        
+                ])
+
+                console.log("--DONE--")
+            } catch(err){
+                console.log("Error fetching ", err);
+            }
+            
+        }
+
+        getMultiplePlaces();
+
+    </script>
+</body>
+</html>

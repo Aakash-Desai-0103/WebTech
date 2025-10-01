@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML5 Media</title>
+</head>
+<body>
+    
+    <h3> HTML5 Media Elements </h3>
+
+    <h4>Audio Example</h4>
+    <audio controls>
+        <source src="Jai Ho.mp3" type="audio/mp3">
+        <source src="sample.ogg" type="audio/ogg">
+        Browser doesnt support audio
+    </audio>
+
+    <h4>Video Example</h4>
+    <video width="300px" height="200px" controls muted>
+        <source src="Avengers.mp4" type="video/mp4">
+        <source src="movie.ogg" type="video/ogg">
+        Video not supported
+    </video>
+
+    <h4>Progress Example</h4>
+    <button onclick="startUpload()">Upload</button>
+    <progress max="100" value="0"
+         style="width: 300px; height: 40px;"></progress>
+    
+</body>
+</html>

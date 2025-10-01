@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        const xmlData = `
+            <user>
+                <name>John Smith</name>
+                <email>john@test.com</email>
+            </user>
+        `;
+
+        // comments not allowed in JSON
+        const jsonData = `
+        {
+            "user" : {
+                "name" : "Merry Rose",
+                "email" : "merry@test.com",
+                "mobile" : [ 1234, 232 ] 
+            }
+        }` ;
+
+    </script>
+</head>
+<body>
+    <h3> XML JSON - Data formats</h3>
+
+    <button onclick="parseXML()">Parse XML</button>
+    <button onclick="parseJSON()">Parse JSON</button>
+
+    <div id="result">
+
+    </div>
+
+    <script>
+        let divElement = document.querySelector("#result");
+
+        function parseJSON(){
+            let parsedObj = JSON.parse(jsonData);
+            console.log(parsedObj);
+
+            divElement.innerHTML = "<h2>Name: " + 
+                parsedObj.user.name + "</h2> <h3>Email:" + 
+                    parsedObj.user.email + "</h3>";
+
+            // send student data to server in JSON format
+            let student = new Object();
+            student.id = 1;
+            student.name = "terry";
+            student.marks = 100;
+
+            let stdJson = JSON.stringify(student);
+            console.log(stdJson);
+        }
+        
+        function parseXML(){
+
+            let parser = new DOMParser(); // xml parser
+            let xmlDoc = parser.parseFromString(xmlData, 
+                    "text/xml");
+
+            let nameElement = xmlDoc.getElementsByTagName("name")[0];
+            console.log(nameElement.childNodes[0].nodeValue);
+
+            divElement.innerHTML = "<h3>Name: " + 
+                nameElement.childNodes[0].nodeValue + "</h3>"
+        }
+    </script>
+</body>
+</html>
